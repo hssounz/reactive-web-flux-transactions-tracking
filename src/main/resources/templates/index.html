@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<p>Companies List: </p>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        <tr th:each="c:${companies}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.companyName}"></td>
+            <td th:text="${c.price}"></td>
+            <td>
+                <button
+                        class="btn btn-primary"
+                        th:attr="onclick=|onConnect('${c.companyName}')|"
+                >
+                    Transactions
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script th:src="@{/js/app.js}"></script>
+</body>
+</html>
