@@ -39,10 +39,10 @@ public class ReactiveWebFluxTransactionsTrackingApplication {
 												Transaction transaction = new Transaction(
 														null,
 														Instant.now(),
-														c.getPrice() + ((Math.random()*12) + 6)/100,
+														50 + Math.random() * 50,
 														c
 												);
-												transactionRepository.save(transaction).subscribe(System.out::println);
+												transactionRepository.save(transaction).subscribe();
 											}
 										}
 								);
